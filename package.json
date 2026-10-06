@@ -1,0 +1,58 @@
+{
+  "name": "gtfs-flatgeobuf",
+  "version": "0.1.0",
+  "description": "Assign GTFS stops to polygons (e.g. French communes) from a single FlatGeobuf file, fetching only the index and the polygons that contain a stop. Same code in Node and in the browser.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "default": "./dist/node/index.js"
+    }
+  },
+  "bin": {
+    "gtfs-flatgeobuf": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "gtfs",
+    "flatgeobuf",
+    "point-in-polygon",
+    "http-range",
+    "communes",
+    "insee",
+    "transit"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "flatbush": "^4.6.2",
+    "flatgeobuf": "^4.5.0",
+    "point-in-polygon-hao": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

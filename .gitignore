@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.fgb
+!test/fixtures/*.fgb
+*.gpkg
+*.7z
