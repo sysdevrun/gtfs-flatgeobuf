@@ -54,8 +54,8 @@ has a next leaf with `nodeIdx < numItems - 1`, comparing an index over all nodes
 *N* features of the file, *N* being the number of internal nodes (2,330 for the communes file: the Hilbert-ordered
 tail, which covers Corsica, Finistère and the Antilles–Guyane), come back with length 0. The library's own range reader
 still returns correct features, but with extra requests (12 instead of 5 for a small bbox in South Corsica). It also
-logs on every node it visits, which made a 2,487-stop search take over a second in a browser. The condition is still on
-flatgeobuf's main branch (4.6.0) and no issue reports it yet. The search here is synchronous, silent, and takes every point in one pass.
+logs on every node it visits, which made a 2,487-stop search take over a second in a browser. Reported upstream as
+[flatgeobuf#539](https://github.com/flatgeobuf/flatgeobuf/issues/539). The search here is synchronous, silent, and takes every point in one pass.
 
 **One file, always consistent.** The index and the features are in the same file, so they cannot get out of sync.
 Requests after the first send `If-Match: <ETag of the first response>`, and the total size in `Content-Range` is
